@@ -1,0 +1,42 @@
+.non-member {
+  text-align: center;
+  font-weight: 400;
+  color: $dark-grey;
+  padding: 0 $padding;
+  @include small {
+    font-size: 60%;
+  }
+
+  h1 {
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    line-height: 1.4;
+  }
+
+  a {
+    color: $primary-color;
+  }
+
+  .sign-up {
+    color: $primary-color;
+  }
+
+  .button {
+    max-width: 320px;
+    margin: 0 auto;
+    font-size: 16px;
+    margin-top: 2rem;
+  }
+
+  .text-button {
+    color: $grey;
+    font-size: 14px;
+  }
+}

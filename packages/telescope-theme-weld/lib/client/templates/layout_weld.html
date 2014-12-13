@@ -1,0 +1,17 @@
+<!-- overwritten to move nav and mobile_nav outside of outer-wrapper -->
+<template name="layoutWeld">
+  <div class="grid-wrap">
+    {{> sidebar}}
+    <main class="content-wrap column">
+      {{> UI.dynamic template=nav}}
+      {{#each heroModules}}
+        {{> UI.dynamic template=getTemplate}}
+      {{/each}}
+      <div class="content row {{pageName}}">
+        {{> UI.dynamic template=error}}
+        {{> yield}}
+        <div class="spacer-bottom row"></div>   
+      </div> <!-- page-wrap -->
+    </main> <!-- main column-->
+  </div> <!-- container row -->
+</template>

@@ -1,0 +1,47 @@
+a.post-category,
+a.post-domain {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 3px 5px 2px 5px;
+  color: $middle-grey;
+  border-radius: 2px;
+  background: $lightest-grey;
+  vertical-align: middle;
+  display: inline-block;
+  margin-bottom: 4px;
+
+  &:hover {
+    color: $primary-color !important;
+  }
+}
+
+a.post-category[href$="category/undefined"] {
+  display: none;
+}
+
+.posts.list .post:hover {
+  a.post-category,
+  a.post-domain {
+    background: white;
+  }
+}
+
+// Categories Admin Page
+
+input.category-name,
+input.category-number {
+  margin-bottom: 1rem;
+}
+
+.category-slug {
+  background: $lightest-grey;
+  border: 2px solid $light-grey;
+  padding: 12px;
+  cursor: not-allowed;
+  font-family: monospace;
+  width: 100%;
+}
+
+.category-save {
+  margin-bottom: 3rem;
+}

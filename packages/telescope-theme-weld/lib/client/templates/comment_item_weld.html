@@ -1,0 +1,37 @@
+<!-- overwritten to remove downvote and reorder items -->
+<template name="comment_item_weld">
+  <li class="comment module comment-displayed" id="{{_id}}">
+   <div class="comment-body">
+      {{#if isDeleted}}
+      {{else}}
+        <div class="comment-content">
+          <div class="comment-main">
+            <div class="comment-text markdown">{{{htmlBody}}}</div>
+            <a class="authorname" href="{{profileUrl}}" data-username="— {{authorName}}, {{timeAgo ago}}">
+              {{>avatar}}
+            </a>
+            <div class="comment-meta">
+              <div class="comment-actions">
+                {{#if getSetting "nestedComments" true}}
+                <a href="/comments/{{_id}}" class="comment-reply goto-comment">{{_ "Reply"}}</a>
+                {{/if}}
+                {{#if can_edit}}
+                <span class="edit-post"><a href="/comments/{{_id}}/edit">{{_ "Edit"}}</a></span>
+                {{/if}}
+              </div> <!-- comment-actions -->
+            </div> <!-- comment-meta -->
+          </div>
+        </div>
+    {{/if}}
+    {{#if showChildComments}}
+      <ul class="comment-children comment-list">
+      {{#each child_comments}}
+        {{#with this}}
+          {{> UI.dynamic template=comment_item}}
+        {{/with}}
+      {{/each}}
+      </ul>
+      {{/if}}
+    </div>
+  </li>
+</template>

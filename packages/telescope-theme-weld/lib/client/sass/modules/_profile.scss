@@ -1,0 +1,125 @@
+.user-profile {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .avatar {
+    height: 100px;
+    width: 100px;
+    margin: 0;
+
+    .avatar-initials {
+      font-size: 1.5rem;
+      line-height: 4.5;
+    }
+  }
+
+  .edit-avatar {
+    display: block;
+    color: $grey;
+    margin-top: 5px;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .profile-links {
+    margin: 2rem 0;
+    font-size: 16px;
+    color: $grey;
+   
+    .username {
+      font-size: 32px;
+      font-weight: 400;
+      color: $dark-grey;
+    }
+
+    li:not(.username) {
+      display: inline;
+      margin-right: 1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include small {
+        display: block;
+        margin: 1rem 0;
+      }
+    }
+  }
+
+  .profile-bio {
+    font-size: 21px;
+    line-height: 1.5;
+  }
+
+} // .user-profile
+
+.user-data {
+  background: $lightest-grey;
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 2rem;
+
+  &:empty {
+    display: none;
+  }
+
+  > div {
+    display: inline-block;
+
+    &:first-child {
+      margin-right: 1rem;
+    }
+  }
+} // .user-data
+
+.user-actions {
+  margin: 3rem 0;
+
+  a {
+    color: $primary-color;
+    margin-right: 1rem;
+
+    &:last-child,
+    &:only-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.user-profile-comments {
+
+  td {
+    vertical-align: top;
+    overflow: hidden;
+    max-width: 300px;
+
+    &:nth-child(1) {
+      width: 25%;
+      font-weight: 600;
+    }
+
+    &:nth-child(2) {
+      width: 50%;
+    }
+    
+    &:nth-child(3) {
+      width: 25%;
+      color: $grey;
+    }
+  }
+
+  @include small {
+    display: none;
+  }
+}
+
+.user-profile-posts,
+.user-profile-comments {
+  margin-bottom: 2rem;
+}
+
+.user-edit {
+  position: relative;
+}

@@ -1,0 +1,18 @@
+<!-- added .notification-link class -->
+<template name="notificationsMenuWeld">
+    <div class="dropdown notifications-menu header-submodule">
+      <a class="view dropdown-top-level notifications-link {{#if hasNotifications}}has-notifications{{/if}}" href="/">{{notification_count_weld}}</a>
+      <div class="dropdown-menu">
+        <ul role="menu" aria-labelledby="dLabel">
+          {{#if hasNotifications}}
+            <li><a href="#" class="mark-as-read">{{_ "Mark All As Read"}}</a></li>  
+            {{#each notifications}}
+              {{> UI.dynamic template=notificationItem}}
+            {{/each}}
+          {{else}}
+            <li>No notifications</li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+</template>

@@ -1,0 +1,73 @@
+.usersWeld {
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  padding: 0;
+}
+
+.user-list,
+.user-table {
+  font-size: 13px;
+  min-width: 900px;
+
+  tr td:last-child,
+  .user td:last-child {
+    border-left: 2px solid transparentize($grey, 0.9);
+    min-width: 300px;
+    position: relative;
+  }
+}
+
+.display-name {
+  font-weight: 600;
+}
+
+.action-link:not(:last-child) {
+  margin-right: 1.5rem;
+  font-weight: 600;
+}
+
+.delete-user {
+  color: #FFF !important;
+  background: $primary-color;
+  border-radius: 3px;
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  margin: auto;
+  bottom: 0;
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  padding: 0;
+}
+
+.filter-sort {
+  @include cf;
+  padding: $padding;
+  background: $dark-grey;
+  height: $header-height;
+
+  a, span {
+    display: inline-block;
+    margin-right: 20px;
+    color: white;
+    
+    &.active {
+      border-bottom: 2px solid $primary-color;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .filter {
+    float: left;
+  }
+
+  .sort {
+    float: right;
+  }
+
+}

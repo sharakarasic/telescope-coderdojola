@@ -1,0 +1,82 @@
+.comments-list {
+  margin-bottom: 200px;
+}
+
+.comment-new {
+  margin-bottom: 3rem;
+}
+
+.comment-content {
+  .avatar {
+    vertical-align: middle;
+    margin-right: 0.2rem;
+  }
+}
+
+.comment-body {
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid $light-grey;
+  font-size: 14px;
+}
+
+.comment-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comment-text p {
+  line-height: 1.5;
+}
+
+.comment-children {
+  .comment.module {
+    border-left: 5px solid $lightest-grey;
+  }
+  .comment-body {
+    padding-left: 1rem;
+  }
+}
+
+.comment-meta { //also in post_info.scss
+  margin: 1rem 0;
+  text-align: right;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+  @include small {
+    opacity: 1;
+  }
+}
+
+.comment-main:hover .comment-meta {
+  opacity: 1;
+}
+
+.comment-username {
+  font-size: bold;
+  margin-top: 0.5rem;
+}
+
+.selected-comment {
+  margin-bottom: 2rem;
+}
+
+.authorname {
+  display: block;
+  margin-top: 1rem;
+  &:after {
+    content: attr(data-username);
+    color: $grey;
+    vertical-align: middle;
+    font-size: 12px;
+  }
+}
+
+.posts.list {
+  .post:not(.sticky):hover {
+    .comments-link a {
+      color: $primary-color;
+      text-decoration: underline;
+    }
+  }
+}

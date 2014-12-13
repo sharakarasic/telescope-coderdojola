@@ -1,0 +1,59 @@
+.post-thumbnail {
+  float: right;
+  margin-left: 1rem;
+  position: relative;
+  cursor: pointer;
+  height: 5rem;
+
+  @include small {
+    margin: 0 0 1rem 1rem;
+  }
+}
+
+.post-thumbnail-link {
+  margin: 0;
+  max-width: 60px;
+  max-height: none;
+  opacity: 0.6;
+  -webkit-will-change: opacity, filter;
+  will-change: opacity, filter;
+  @include transition (opacity 300ms ease, filter 300ms ease);
+  @include filter (saturate(0));
+
+  &:hover {
+    opacity: 1;
+    @include filter (saturate(1));
+  }
+
+  &:after {
+    content: '';
+    background: rgba(0,0,0,0.2);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 3px;
+    pointer-events: none;
+  }
+
+  @include small {
+    width: 50px;
+  }
+}
+
+.post-thumbnail-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  max-width: 80px;
+  border-radius: 3px;
+}
+
+.post-thumbnail-has-video:after{
+  font-size: 60px;
+  line-height: 44px;
+  text-shadow: none;
+  background: transparent;
+  color: white;
+  border: none;
+}

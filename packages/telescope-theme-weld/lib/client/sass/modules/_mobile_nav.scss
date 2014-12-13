@@ -1,0 +1,98 @@
+.mobile-menu-button {
+  @include small {
+    display: block;
+    left: 0;
+    line-height: $mobile-header-height; 
+    position: absolute;
+    width: 4rem;
+    height: $mobile-header-height;
+    cursor: pointer;
+    background: url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2221%22%20height%3D%2217%22%20viewBox%3D%220%200%2021%2017%22%3E%3Cg%20fill%3D%22%23fff%22%3E%3Cpath%20d%3D%22M0%200h21v2h-21zM0%205h18v2h-18zM0%2010h20v2h-20zM0%2015h15v2h-15z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E') no-repeat center;
+  }
+}
+
+.content,
+.sidebar {
+  @include transition ( transform 300ms cubic-bezier(0.25, 0, 0.25, 1.1));
+}
+
+.sidebar {
+  overflow: hidden;
+  padding-bottom: 0;
+  background: $darkest-grey;
+  max-width: 320px;
+}
+
+.sidebar-menu { 
+  max-width: 100%;
+  max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav-open {
+  overflow: hidden;
+
+  .content {
+    @include translateX (80%);
+    overflow: hidden;
+  }
+
+  .sidebar {
+    @include translateX ( 0 );
+  }
+}
+
+.sidebar-menu {
+
+  &::-webkit-scrollbar { 
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+
+  > li {
+    display: block;
+    height: auto;
+    line-height: inherit;
+    font-size: 18px;
+    font-weight: 400;
+    color: $grey;
+    max-width: 200px;
+    
+    a {
+      &, &:link, &:visited {
+        color: $grey;
+      }
+    }
+  }
+
+  .dropdown {
+    
+    > a {
+      &:after {
+        display: inline-block;
+        position: relative;
+        top: -3px;
+        margin-left: 6px;
+        content: "▼";
+        font-size: 8px;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    
+    li {
+      padding: 10px 0;
+      margin-bottom: 0;
+      border-top: 1px white(0.2) solid;
+    }
+
+    li:first-child {
+      margin-top: 1rem;
+    }
+  }
+}

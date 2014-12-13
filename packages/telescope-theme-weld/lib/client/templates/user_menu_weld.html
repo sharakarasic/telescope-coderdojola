@@ -1,0 +1,10 @@
+<!-- removed signup link and account-link class -->
+<template name="userMenuWeld">
+  {{#if isLoggedIn}}
+    <div class="user-menu header-submodule">
+      <a class="view" href="{{profileUrl}}">{{name}}</a>
+    </div>
+  {{else}}
+    <a class="sign-in" href="/sign-in">{{_ "Sign In"}}</a>
+  {{/if}}
+</template>

@@ -1,0 +1,76 @@
+.sidebar {
+  background: $darkest-grey;
+}
+
+.close-icon {
+  font-size: 38px;
+  font-weight: 200;
+  color: #FFF;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+  cursor: pointer;
+  @include small {
+    font-weight: 400;
+  }
+}
+
+.sidebar-menu {
+  padding: $padding;
+  @include small {
+    min-height: 100vh;
+    margin-bottom: 20rem;
+    margin-top: 2rem;
+  }
+
+  li {
+    color: $grey;
+    display: block;
+    font-size: 1rem;
+    font-weight: 400;
+    height: auto;
+    margin-bottom: $gutter;
+    
+    a {
+      display: block;
+      &, &:link, &:visited {
+        color: $grey;
+      }
+    }
+
+    @include small {
+      font-size: 1.2rem;
+    }
+  }
+
+  .dropdown {
+    
+    > a {
+      &:after {
+        display: inline-block;
+        position: relative;
+        top: -2px;
+        margin-left: 6px;
+        content: "▼";
+        font-size: 8px;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    display: none;
+
+    li {
+      padding: 10px 0;
+      margin-bottom: 0;
+      border-top: 1px white(0.2) solid;
+    }
+
+    li:first-child {
+      margin-top: 1rem;
+    }
+  }
+}
