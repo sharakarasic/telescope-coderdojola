@@ -12,7 +12,8 @@ Package.on_use(function (api) {
     'telescope-search',
     'telescope-embedly',
     'telescope-notifications',
-    'telescope-newsletter'
+    'telescope-newsletter',
+    'tap:i18n'
   ], ['client']);
 
   api.use([
@@ -22,6 +23,10 @@ Package.on_use(function (api) {
   ], ['client', 'server']);
 
   api.use('cmather:handlebars-server');
+
+  api.add_files([
+    'package-tap.i18n'
+  ], ['client', 'server']);
 
   api.add_files([
     'lib/client/stylesheets/main.css',
@@ -103,6 +108,10 @@ Package.on_use(function (api) {
     'lib/server/templates/emailPostItemWeld.handlebars',
     'lib/server/templates/emailDigestWeld.handlebars'
   ], ['server']);
+
+  api.add_files([
+    "i18n/en.i18n.json"
+  ], ["client", "server"]);
 
   api.export([
     'viewNav',

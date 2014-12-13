@@ -1,11 +1,11 @@
 viewNav = [
   {
-    route: 'posts_new',
-    label: 'New'
+    route: 'posts_top',
+    label: 'top2'
   },
   {
-    route: 'posts_top',
-    label: 'Top'
+    route: 'posts_new',
+    label: 'new2'
   }
 ];
 
