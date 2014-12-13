@@ -10,7 +10,7 @@ Package.on_use(function (api) {
     'templating',
     'telescope-tags',
     'telescope-search',
-    'telescope-module-embedly',
+    'telescope-embedly',
     'telescope-notifications',
     'telescope-newsletter'
   ], ['client']);
