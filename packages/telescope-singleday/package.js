@@ -16,7 +16,7 @@ Package.onUse(function (api) {
 
   api.use([
     'telescope-base',
-    'telescope-lib',
+    'telescope:telescope-lib',
     'telescope-i18n',
     'tap:i18n',
     'iron:router'
@@ -27,7 +27,7 @@ Package.onUse(function (api) {
   api.use([
     'jquery',
     'underscore',
-    'templating' 
+    'templating'
   ], ['client']);
 
   // server
@@ -63,7 +63,7 @@ Package.onUse(function (api) {
   // server
 
   api.add_files([
-  ], ['server']);    
+  ], ['server']);
 
   // i18n languages (must come last)
 

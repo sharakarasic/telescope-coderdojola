@@ -10,12 +10,12 @@ Template.post_item.helpers({
   },
   moduleContext: function () { // not used for now
     var module = this;
-    module.templateClass = camelToDash(this.template) + ' ' + this.position + ' cell';
+    module.templateClass = Telescope.utils.camelToDash(this.template) + ' ' + this.position + ' cell';
     module.post = post;
     return module;
   },
   moduleClass: function () {
-    return camelToDash(this.template) + ' post-module';
+    return Telescope.utils.camelToDash(this.template) + ' post-module';
   },
   postClass: function () {
     var post = this;

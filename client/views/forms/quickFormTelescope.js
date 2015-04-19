@@ -40,7 +40,7 @@ Template.quickForm_telescope.helpers({
     return groups;
   },
   fieldsetName: function () {
-    return capitalise(i18n.t(this));
+    return Telescope.utils.capitalise(i18n.t(this));
   },
   fieldsForFieldset: function () {
     var fieldset = this.toLowerCase();
@@ -131,7 +131,7 @@ Template["afFormGroup_telescope"].helpers({
     var fieldSchema = AutoForm.getFormSchema().schema(fieldName);
 
     // if a label has been explicitely specified, use it; else default to capitalization of i18n of the field name
-    var label = !!fieldSchema.label ? fieldSchema.label: capitalise(i18n.t(fieldName));
+    var label = !!fieldSchema.label ? fieldSchema.label: Telescope.utils.capitalise(i18n.t(fieldName));
 
     return label;
   }

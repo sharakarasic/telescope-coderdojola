@@ -7,7 +7,7 @@ Package.describe({
 Package.onUse(function (api) {
 
   api.use([
-    'telescope-lib',
+    'telescope:telescope-lib',
     'telescope-base',
     'telescope-settings',
     'telescope-email',

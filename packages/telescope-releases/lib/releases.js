@@ -4,7 +4,7 @@ heroModules.push({
   template: 'currentRelease'
 });
 
-preloadSubscriptions.push('currentRelease');
+Telescope.config.preloadSubscriptions.push('currentRelease');
 
 Meteor.startup(function () {
   Releases.allow({

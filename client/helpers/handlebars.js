@@ -55,7 +55,7 @@ UI.registerHelper('timeAgo', function(datetime) {
 UI.registerHelper('sanitize', function(content) {
   console.log('cleaning up…');
   console.log(content);
-  return cleanUp(content);
+  return Telescope.utils.cleanUp(content);
 });
 
 UI.registerHelper('pluralize', function(count, string) {

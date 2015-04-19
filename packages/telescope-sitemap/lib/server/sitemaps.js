@@ -40,8 +40,8 @@ Meteor.startup(function() {
     // "best". Aggregate them to avoid duplication.
     var postPages = {};
     _.each(["top", "new", "best"], function(key) {
-      var siteUrl = getSiteUrl();
       var params = getPostsParameters(viewParameters[key]());
+      var siteUrl = Telescope.utils.getSiteUrl();
       var posts = Posts.find(params.find, {
         fields: {postedAt: 1, title: 1, _id: 1},
         limit: 100,

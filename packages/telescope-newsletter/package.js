@@ -11,7 +11,7 @@ Npm.depends({
 Package.onUse(function (api) {
 
   api.use([
-    'telescope-lib',
+    'telescope:telescope-lib',
     'telescope-base',
     'telescope-settings',
     'aldeed:simple-schema',

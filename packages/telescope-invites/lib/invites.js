@@ -43,8 +43,8 @@ userCreatedCallbacks.push(setStartingInvites);
 function checkIfInvited (user) {
   // if the new user has been invited
   // set her status accordingly and update invitation info
-  if(invitesEnabled() && getEmail(user)){
-    var invite = Invites.findOne({ invitedUserEmail : getEmail(user) });
+  if(Telescope.utils.invitesEnabled() && Users.getEmail(user)){
+    var invite = Invites.findOne({ invitedUserEmail : Users.getEmail(user) });
     if(invite){
       var invitedBy = Meteor.users.findOne({ _id : invite.invitingUserId });
 

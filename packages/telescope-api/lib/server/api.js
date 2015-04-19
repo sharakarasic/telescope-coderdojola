@@ -17,7 +17,7 @@ serveAPI = function(limitSegment){
       properties.body = post.body;
 
     if(post.url)
-      properties.domain = getDomain(url);
+      properties.domain = Telescope.utils.getDomain(url);
 
     if(twitterName = getTwitterNameById(post.userId))
       properties.twitterName = twitterName;

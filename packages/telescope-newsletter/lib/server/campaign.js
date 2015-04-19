@@ -42,10 +42,10 @@ buildCampaign = function (postsArray) {
     });
 
     if (post.body)
-      properties.body = marked(trimWords(post.body, 20)).replace('<p>', '').replace('</p>', ''); // remove p tags
+      properties.body = marked(Telescope.utils.trimWords(post.body, 20)).replace('<p>', '').replace('</p>', ''); // remove p tags
 
     if(post.url)
-      properties.domain = getDomain(post.url)
+      properties.domain = Telescope.utils.getDomain(post.url)
 
     postsHTML += getEmailTemplate('emailPostItem')(properties);
   });
@@ -62,7 +62,7 @@ buildCampaign = function (postsArray) {
 
   var campaign = {
     postIds: _.pluck(postsArray, '_id'),
-    subject: trimWords(subject, 15),
+    subject: Telescope.utils.trimWords(subject, 15),
     html: emailHTML
   }
 

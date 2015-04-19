@@ -44,7 +44,7 @@ findQueueContainer = function($comment) {
         // add comment ID to global array to avoid queuing it again
         window.openedComments.push(target.substr(1));
       });
-      // scrollPageTo(links.first().attr("href"));
+      // Telescope.utils.scrollPageTo(links.first().attr("href"));
       $(this).hide("slow").remove();
     });
   }

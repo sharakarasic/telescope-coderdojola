@@ -31,7 +31,7 @@ Accounts.onCreateUser(function(options, user){
     user.profile.username = user.username;
 
   // create slug from username
-  user.slug = slugify(getUserName(user));
+  user.slug = Telescope.utils.slugify(Users.getUserName(user));
 
   // if this is not a dummy account, and is the first user ever, make them an admin
   user.isAdmin = (!user.profile.isDummy && Meteor.users.find({'profile.isDummy': {$ne: true}}).count() === 0) ? true : false;

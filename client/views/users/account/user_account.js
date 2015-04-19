@@ -48,7 +48,7 @@ Template.userAccount.events({
     var user = this;
     var update = {
       "profile.username": name,
-      "profile.slug": slugify(name),
+      "profile.slug": Telescope.utils.slugify(name),
       "profile.bio": $target.find('[name=bio]').val(),
       "profile.city": $target.find('[name=city]').val(),
       "profile.email": email,

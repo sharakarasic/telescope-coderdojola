@@ -30,7 +30,7 @@ Categories.attachSchema(categorySchema);
 Categories.before.insert(function (userId, doc) {
   // if no slug has been provided, generate one
   if (!doc.slug)
-    doc.slug = slugify(doc.name);
+    doc.slug = Telescope.utils.slugify(doc.name);
 });
 
 // category post list parameters
@@ -55,7 +55,7 @@ getPostCategories = function (post) {
 }
 
 getCategoryUrl = function(slug){
-  return getSiteUrl()+'category/'+slug;
+  return Telescope.utils.getSiteUrl()+'category/'+slug;
 };
 
 // add callback that adds categories CSS classes
