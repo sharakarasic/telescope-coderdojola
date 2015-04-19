@@ -33,9 +33,9 @@ buildEmailNotification = function (notification) {
 
   var emailProperties = _.extend(notification.data, {
     body: marked(comment.body),
-    postLink: getPostLink(post)
     profileUrl: Users.getProfileUrlBySlugOrId(comment.userId),
     postCommentUrl: Telescope.utils.getPostCommentUrl(post._id, comment._id),
+    postLink: Posts.getLink(post)
   });
 
   // console.log(emailProperties)

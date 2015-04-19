@@ -21,7 +21,7 @@ Template.post_item.helpers({
     var post = this;
     var postAuthorClass = "author-"+post.author;
 
-    var postClass = postClassCallbacks.reduce(function(result, currentFunction) {
+    var postClass = Posts.hooks.classCallbacks.reduce(function(result, currentFunction) {
         return currentFunction(post, result);
     }, postAuthorClass);
 

@@ -11,6 +11,7 @@ Package.onUse(function(api) {
     "iron:router",
     "telescope:telescope-lib",
     "telescope-base",
+    "telescope:telescope-posts",
     "gadicohen:sitemaps@0.0.20"
   ]);
 

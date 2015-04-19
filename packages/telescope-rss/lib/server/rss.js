@@ -14,7 +14,7 @@ var getMeta = function(url) {
 servePostRSS = function(view, url) {
   var feed = new RSS(getMeta(url));
 
-  var params = getPostsParameters({view: view, limit: 20});
+  var params = Posts.getSubParams({view: view, limit: 20});
   delete params['options']['sort']['sticky'];
 
   Posts.find(params.find, params.options).forEach(function(post) {
@@ -24,7 +24,7 @@ servePostRSS = function(view, url) {
      description: description + '<a href="' + Telescope.utils.getPostUrl(post._id) + '">Discuss</a>',
      author: post.author,
      date: post.postedAt,
-     url: getPostLink(post),
+     url: Posts.getLink(post),
      guid: post._id
     });
   });

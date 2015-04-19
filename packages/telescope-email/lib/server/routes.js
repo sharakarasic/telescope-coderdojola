@@ -25,7 +25,7 @@ Meteor.startup(function () {
     action: function() {
       var post = Posts.findOne(this.params.id);
       if (!!post) {
-        html = getEmailTemplate('emailNewPost')(getPostProperties(post));
+        html = getEmailTemplate('emailNewPost')(Posts.getProperties(post));
       } else {
         html = "<h3>No post found.</h3>"
       }

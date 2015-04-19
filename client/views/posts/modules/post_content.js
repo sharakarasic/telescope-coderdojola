@@ -15,7 +15,7 @@ Template.postContent.helpers({
     return "http://"+document.domain;
   },
   timestamp: function(){
-    time = this.status == STATUS_APPROVED ? this.postedAt : this.createdAt;
+    time = this.status == Posts.config.STATUS_APPROVED ? this.postedAt : this.createdAt;
     return moment(time).format("MMMM Do, h:mm:ss a");
   },
   userAvatar: function(){

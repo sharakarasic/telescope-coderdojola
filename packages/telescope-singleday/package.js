@@ -18,6 +18,7 @@ Package.onUse(function (api) {
     'telescope-base',
     'telescope:telescope-lib',
     'telescope-i18n',
+    'telescope:telescope-posts',
     'tap:i18n',
     'iron:router'
   ]);

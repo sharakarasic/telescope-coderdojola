@@ -94,6 +94,7 @@ telescope-sitemap
 telescope-messages
 telescope-pages
 
+telescope:telescope-posts
 telescope:telescope-lib
 telescope:telescope-users
 

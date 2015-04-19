@@ -50,7 +50,7 @@ Herald.addCourier('newPost', {
   media: {
     email: {
       emailRunner: function (user) {
-        var p = getPostProperties(this.data);
+        var p = Posts.getProperties(this.data);
         var subject = p.postAuthorName+' has created a new post: '+p.postTitle;
         var html = buildEmailTemplate(getEmailTemplate('emailNewPost')(p));
         sendEmail(Users.getEmail(user), subject, html);
@@ -64,7 +64,7 @@ Herald.addCourier('newPendingPost', {
   media: {
     email: {
       emailRunner: function (user) {
-        var p = getPostProperties(this.data);
+        var p = Posts.getProperties(this.data);
         var subject = p.postAuthorName+' has a new post pending approval: '+p.postTitle;
         var html = buildEmailTemplate(getEmailTemplate('emailNewPendingPost')(p));
         sendEmail(Users.getEmail(user), subject, html);
@@ -78,7 +78,7 @@ Herald.addCourier('postApproved', {
     onsite: {},
     email: {
       emailRunner: function (user) {
-        var p = getPostProperties(this.data);
+        var p = Posts.getProperties(this.data);
         var subject = 'Your post “'+p.postTitle+'” has been approved';
         var html = buildEmailTemplate(getEmailTemplate('emailPostApproved')(p));
         sendEmail(Users.getEmail(user), subject, html);
@@ -94,11 +94,11 @@ Herald.addCourier('postApproved', {
   },
   transform: {
     postUrl: function () {
-      var p = getPostProperties(this.data);
+      var p = Posts.getProperties(this.data);
       return p.postUrl;
     },
     postTitle: function () {
-      var p = getPostProperties(this.data);
+      var p = Posts.getProperties(this.data);
       return p.postTitle;
     }
   }

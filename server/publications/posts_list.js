@@ -1,8 +1,8 @@
 // Publish a list of posts
 
 Meteor.publish('postsList', function(terms) {
-    var parameters = getPostsParameters(terms),
   if(Users.can.viewById(this.userId)){
+    var parameters = Posts.getSubParams(terms),
         posts = Posts.find(parameters.find, parameters.options);
 
     return posts;
@@ -14,8 +14,8 @@ Meteor.publish('postsList', function(terms) {
 // plus the commenters for each post
 
 Meteor.publish('postsListUsers', function(terms) {
-    var parameters = getPostsParameters(terms),
   if(Users.can.viewById(this.userId)){
+    var parameters = Posts.getSubParams(terms),
         posts = Posts.find(parameters.find, parameters.options),
         postsIds = _.pluck(posts.fetch(), '_id'),
         userIds = _.pluck(posts.fetch(), 'userId');

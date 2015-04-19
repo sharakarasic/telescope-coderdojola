@@ -59,7 +59,7 @@ getCategoryUrl = function(slug){
 };
 
 // add callback that adds categories CSS classes
-postClassCallbacks.push(function (post, postClass){
+Posts.hooks.classCallbacks.push(function (post, postClass){
   var classArray = _.map(getPostCategories(post), function (category){return "category-"+category.slug});
   return postClass + " " + classArray.join(' ');
 });

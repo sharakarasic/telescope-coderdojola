@@ -20,6 +20,7 @@ Package.onUse(function (api) {
     'telescope-base',             // basic Telescope hooks and objects
     'telescope:telescope-lib',              // useful functions
     'telescope-i18n',             // internationalization wrapper
+    'telescope:telescope-posts',
     'momentjs:moment'
   ]);
 

@@ -11,19 +11,19 @@ Meteor.publish('singleUser', function(idOrSlug) {
 });
 
 Meteor.publish('userPosts', function(terms) {
-  var parameters = getPostsParameters(terms);
+  var parameters = Posts.getSubParams(terms);
   var posts = Posts.find(parameters.find, parameters.options);
   return posts;
 });
 
 Meteor.publish('userUpvotedPosts', function(terms) {
-  var parameters = getPostsParameters(terms);
+  var parameters = Posts.getSubParams(terms);
   var posts = Posts.find(parameters.find, parameters.options);
   return posts;
 });
 
 Meteor.publish('userDownvotedPosts', function(terms) {
-  var parameters = getPostsParameters(terms);
+  var parameters = Posts.getSubParams(terms);
   var posts = Posts.find(parameters.find, parameters.options);
   return posts;
 });

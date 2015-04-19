@@ -57,7 +57,7 @@ getEmbedlyData = function (url) {
 //   }
 //   return post;
 // }
-// postSubmitMethodCallbacks.push(addMediaOnSubmit);
+// Posts.hooks.submitMethodCallbacks.push(addMediaOnSubmit);
 
 // Async variant that directly modifies the post object with update()
 var addMediaAfterSubmit = function (post) {
@@ -83,7 +83,7 @@ var addMediaAfterSubmit = function (post) {
   }
   return post;
 }
-postAfterSubmitMethodCallbacks.push(addMediaAfterSubmit);
+Posts.hooks.afterSubmitMethodCallbacks.push(addMediaAfterSubmit);
 
 // TODO: find a way to only do this is URL has actually changed?
 var updateMediaOnEdit = function (updateObject) {
@@ -95,7 +95,7 @@ var updateMediaOnEdit = function (updateObject) {
   }
   return updateObject;
 }
-postEditMethodCallbacks.push(updateMediaOnEdit);
+Posts.hooks.editMethodCallbacks.push(updateMediaOnEdit);
 
 
 Meteor.methods({

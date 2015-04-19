@@ -5,6 +5,7 @@ Package.onUse(function (api) {
   api.use([
     'telescope:telescope-lib',
     'telescope-base',
+    'telescope:telescope-posts',
     'aldeed:simple-schema',
     'aldeed:autoform',
     'tap:i18n',
@@ -57,7 +58,6 @@ Package.onUse(function (api) {
   ], ["client", "server"]);
 
   api.export([
-    'Telescope',
     'Categories',
     'getPostCategories'
   ]);

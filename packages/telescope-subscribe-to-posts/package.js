@@ -18,7 +18,8 @@ Package.onUse(function (api) {
     'telescope:telescope-lib',
     'telescope-i18n',
     'fourseven:scss',
-    'telescope-notifications'
+    'telescope-notifications',
+    'telescope:telescope-posts'
   ]);
 
   // client

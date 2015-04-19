@@ -164,7 +164,7 @@ viewParameters = {};
 // will be common to all other view unless specific properties are overwritten
 viewParameters.baseParameters = {
   find: {
-    status: STATUS_APPROVED
+    status: Posts.config.STATUS_APPROVED
   },
   options: {
     limit: 10

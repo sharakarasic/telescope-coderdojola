@@ -12,7 +12,7 @@ getCampaignPosts = function (postsCount) {
   var lastWeek = moment().subtract(7, 'days').toDate();
   var after = (typeof lastCampaign != 'undefined') ? lastCampaign.finishedAt : lastWeek
 
-  var params = getPostsParameters({
+  var params = Posts.getSubParams({
     view: 'campaign',
     limit: postsCount,
     after: after
@@ -34,10 +34,10 @@ buildCampaign = function (postsArray) {
 
     // the naked post object as stored in the database is missing a few properties, so let's add them
     var properties = _.extend(post, {
-      postLink: getPostLink(post),
-      postPageLink: getPostPageUrl(post),
       authorName: Users.getAuthorName(post),
+      postLink: Posts.getLink(post),
       profileUrl: Users.getProfileUrl(postUser),
+      postPageLink: Posts.getPageUrl(post),
       date: moment(post.postedAt).format("MMMM D YYYY")
     });
 
