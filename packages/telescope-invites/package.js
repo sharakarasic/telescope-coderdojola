@@ -20,6 +20,7 @@ Package.onUse(function (api) {
     'telescope-base',
     'telescope-settings',
     'telescope:telescope-lib',
+    'telescope:telescope-users',
     'telescope-i18n',
     'aldeed:simple-schema',
     'aldeed:autoform'

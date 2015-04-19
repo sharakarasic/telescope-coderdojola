@@ -12,7 +12,7 @@ var feedSchema = new SimpleSchema({
         var users = Meteor.users.find().map(function (user) {
           return {
             value: user._id,
-            label: getDisplayName(user)
+            label: Users.getDisplayName(user)
           };
         });
         return users;
@@ -73,9 +73,9 @@ addToPostSchema.push(feedItemIdProperty);
 
 Meteor.startup(function () {
   Feeds.allow({
-    insert: isAdminById,
-    update: isAdminById,
-    remove: isAdminById
+    insert: Users.isAdminById,
+    update: Users.isAdminById,
+    remove: Users.isAdminById
   });
 
   Meteor.methods({
@@ -85,7 +85,7 @@ Meteor.startup(function () {
       if (Feeds.findOne({url: feedSchema.url}))
         throw new Meteor.Error('already-exists', i18n.t('feed_already_exists'));
 
-      if (!Meteor.user() || !isAdmin(Meteor.user()))
+      if (!Meteor.user() || !Users.isAdmin(Meteor.user()))
         throw new Meteor.Error('login-required', i18n.t('you_need_to_login_and_be_an_admin_to_add_a_new_feed'));
 
       return Feeds.insert(feedUrl);

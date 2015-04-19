@@ -8,6 +8,7 @@ Package.onUse(function (api) {
 
   api.use([
     'telescope:telescope-lib',
+    'telescope:telescope-users',
     'telescope-base',
     'telescope-settings',
     'telescope-email',

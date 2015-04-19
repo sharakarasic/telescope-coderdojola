@@ -109,7 +109,7 @@ Meteor.methods({
     return !!Settings.get('embedlyKey');
   },
   regenerateEmbedlyData: function (post) {
-    if (can.edit(Meteor.user(), post)) {
+    if (Users.can.edit(Meteor.user(), post)) {
       addMediaAfterSubmit(post);
     }
   }

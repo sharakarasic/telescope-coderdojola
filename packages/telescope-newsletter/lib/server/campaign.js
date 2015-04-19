@@ -34,10 +34,10 @@ buildCampaign = function (postsArray) {
 
     // the naked post object as stored in the database is missing a few properties, so let's add them
     var properties = _.extend(post, {
-      authorName: getAuthorName(post),
       postLink: getPostLink(post),
-      profileUrl: getProfileUrl(postUser),
       postPageLink: getPostPageUrl(post),
+      authorName: Users.getAuthorName(post),
+      profileUrl: Users.getProfileUrl(postUser),
       date: moment(post.postedAt).format("MMMM D YYYY")
     });
 
@@ -82,11 +82,11 @@ scheduleNextCampaign = function (isTest) {
 
 Meteor.methods({
   sendCampaign: function () {
-    if(isAdminById(this.userId))
+    if(Users.isAdminById(this.userId))
       return scheduleNextCampaign(false);
   },
   testCampaign: function () {
-    if(isAdminById(this.userId))
+    if(Users.isAdminById(this.userId))
       return scheduleNextCampaign(true);
   }
 });

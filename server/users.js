@@ -23,7 +23,7 @@ Accounts.onCreateUser(function(options, user){
     user.profile.email = options.email;
 
   // if email is set, use it to generate email hash
-  if (getEmail(user))
+  if (Users.getEmail(user))
     user.email_hash = getEmailHash(user);
 
   // set username on profile
@@ -40,7 +40,7 @@ Accounts.onCreateUser(function(options, user){
 
   // run all post submit client callbacks on properties object successively
   clog('// Start userCreatedCallbacks');
-  user = userCreatedCallbacks.reduce(function(result, currentFunction) {
+  user = Users.hooks.userCreatedCallbacks.reduce(function(result, currentFunction) {
     clog('// Running '+currentFunction.name+'…');
     return currentFunction(result);
   }, user);
@@ -59,7 +59,7 @@ Accounts.onCreateUser(function(options, user){
 Meteor.methods({
   changeEmail: function (userId, newEmail) {
     var user = Meteor.users.findOne(userId);
-    if (can.edit(Meteor.user(), user) !== true) {
+    if (Users.can.edit(Meteor.user(), user) !== true) {
       throw new Meteor.Error("Permission denied");
     }
     Meteor.users.update(
@@ -74,10 +74,10 @@ Meteor.methods({
     );
   },
   // numberOfPostsToday: function(){
-  //   console.log(numberOfItemsInPast24Hours(Meteor.user(), Posts));
+  //   console.log(Users.numberOfItemsInPast24Hours(Meteor.user(), Posts));
   // },
   // numberOfCommentsToday: function(){
-  //   console.log(numberOfItemsInPast24Hours(Meteor.user(), Comments));
+  //   console.log(Users.numberOfItemsInPast24Hours(Meteor.user(), Comments));
   // },
   testBuffer: function(){
     // TODO

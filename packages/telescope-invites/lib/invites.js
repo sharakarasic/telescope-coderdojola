@@ -38,7 +38,7 @@ userProfileEdit.push({
   user.inviteCount = Settings.get('startInvitesCount', 3);
   return user;
 }
-userCreatedCallbacks.push(setStartingInvites);
+Users.hooks.userCreatedCallbacks.push(setStartingInvites);
 
 function checkIfInvited (user) {
   // if the new user has been invited
@@ -51,7 +51,7 @@ function checkIfInvited (user) {
       user = _.extend(user, {
         isInvited: true,
         invitedBy: invitedBy._id,
-        invitedByName: getDisplayName(invitedBy)
+        invitedByName: Users.getDisplayName(invitedBy)
       });
 
       Invites.update(invite._id, {$set : {
@@ -61,4 +61,4 @@ function checkIfInvited (user) {
   }
   return user;
 }
-userCreatedCallbacks.push(checkIfInvited);
+Users.hooks.userCreatedCallbacks.push(checkIfInvited);

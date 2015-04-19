@@ -6,8 +6,8 @@ if (Meteor.absoluteUrl().indexOf('localhost') !== -1)
 Meteor.startup(function () {
 
   Herald.collection.deny({
-    update: !can.editById,
-    remove: !can.editById
+    update: !Users.can.editById,
+    remove: !Users.can.editById
   });
 
   // disable all email notifications when "emailNotifications" is set to false
@@ -20,23 +20,23 @@ var commentEmail = function (userToNotify) {
   // put in setTimeout so it doesn't hold up the rest of the method
   Meteor.setTimeout(function () {
     notificationEmail = buildEmailNotification(notification);
-    sendEmail(getEmail(userToNotify), notificationEmail.subject, notificationEmail.html);
+    sendEmail(Users.getEmail(userToNotify), notificationEmail.subject, notificationEmail.html);
   }, 1);
 }
 
 var getCommenterProfileUrl = function (comment) {
   var user = Meteor.users.findOne(comment.userId);
   if (user) {
-    return getProfileUrl(user);
+    return Users.getProfileUrl(user);
   } else {
-    return getProfileUrlBySlugOrId(comment.userId);
+    return Users.getProfileUrlBySlugOrId(comment.userId);
   }
 }
 
 var getAuthor = function (comment) {
   var user = Meteor.users.findOne(comment.userId);
   if (user) {
-    return getUserName(user);
+    return Users.getUserName(user);
   } else {
     return comment.author;
   }
@@ -53,7 +53,7 @@ Herald.addCourier('newPost', {
         var p = getPostProperties(this.data);
         var subject = p.postAuthorName+' has created a new post: '+p.postTitle;
         var html = buildEmailTemplate(getEmailTemplate('emailNewPost')(p));
-        sendEmail(getEmail(user), subject, html);
+        sendEmail(Users.getEmail(user), subject, html);
       }
     }
   }
@@ -67,7 +67,7 @@ Herald.addCourier('newPendingPost', {
         var p = getPostProperties(this.data);
         var subject = p.postAuthorName+' has a new post pending approval: '+p.postTitle;
         var html = buildEmailTemplate(getEmailTemplate('emailNewPendingPost')(p));
-        sendEmail(getEmail(user), subject, html);
+        sendEmail(Users.getEmail(user), subject, html);
       }
     }
   }
@@ -81,7 +81,7 @@ Herald.addCourier('postApproved', {
         var p = getPostProperties(this.data);
         var subject = 'Your post “'+p.postTitle+'” has been approved';
         var html = buildEmailTemplate(getEmailTemplate('emailPostApproved')(p));
-        sendEmail(getEmail(user), subject, html);
+        sendEmail(Users.getEmail(user), subject, html);
       }
     }
   },

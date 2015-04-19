@@ -44,9 +44,9 @@ viewParameters.category = function (terms) {
 
 Meteor.startup(function () {
   Categories.allow({
-    insert: isAdminById,
-    update: isAdminById,
-    remove: isAdminById
+    insert: Users.isAdminById,
+    update: Users.isAdminById,
+    remove: Users.isAdminById
   });
 });
 

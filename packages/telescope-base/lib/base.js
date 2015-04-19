@@ -329,11 +329,6 @@ commentEditClientCallbacks = [];
 commentEditMethodCallbacks = []; // not used yet
 commentAfterEditMethodCallbacks = []; // not used yet
 
-userEditRenderedCallbacks = [];
-userEditClientCallbacks = [];
-userCreatedCallbacks = [];
-userProfileCompleteChecks = [];
-
 upvoteCallbacks = [];
 downvoteCallbacks = [];
 cancelUpvoteCallbacks = [];
@@ -375,11 +370,6 @@ userProfileEdit = [
   }
 ];
 
-userProfileCompleteChecks.push(
-  function(user) {
-    return !!getEmail(user) && !!getUserName(user);
-  }
-);
 
 // ------------------------------ Dynamic Templates ------------------------------ //
 

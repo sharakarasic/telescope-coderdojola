@@ -121,4 +121,4 @@ function setNotificationDefaults (user) {
   };
   return user;
 }
-userCreatedCallbacks.push(setNotificationDefaults);
+Users.hooks.userCreatedCallbacks.push(setNotificationDefaults);

@@ -8,8 +8,8 @@ Telescope.config.preloadSubscriptions.push('currentRelease');
 
 Meteor.startup(function () {
   Releases.allow({
-    insert: isAdminById,
-    update: isAdminById,
-    remove: isAdminById
+    insert: Users.isAdminById,
+    update: Users.isAdminById,
+    remove: Users.isAdminById
   });
 });

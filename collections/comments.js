@@ -94,7 +94,7 @@ Comments.attachSchema(commentSchema);
 
 Comments.deny({
   update: function(userId, post, fieldNames) {
-    if(isAdminById(userId))
+    if(Users.isAdminById(userId))
       return false;
     // deny the update if it contains something other than the following fields
     return (_.without(fieldNames, 'body').length > 0);
@@ -102,8 +102,8 @@ Comments.deny({
 });
 
 Comments.allow({
-  update: can.editById,
-  remove: can.editById
+  update: Users.can.editById,
+  remove: Users.can.editById
 });
 
 // ------------------------------------------------------------------------------------------- //
@@ -168,7 +168,7 @@ submitComment = function (comment) {
     downvotes: 0,
     baseScore: 0,
     score: 0,
-    author: getDisplayNameById(userId)
+    author: Users.getDisplayNameById(userId)
   };
 
   comment = _.extend(defaultProperties, comment);
@@ -213,19 +213,19 @@ Meteor.methods({
     // parentCommentId
 
     var user = Meteor.user(),
-        hasAdminRights = isAdmin(user);
+        hasAdminRights = Users.isAdmin(user);
 
     // ------------------------------ Checks ------------------------------ //
 
     // check that user can comment
-    if (!user || !can.comment(user))
+    if (!user || !Users.can.comment(user))
       throw new Meteor.Error(i18n.t('you_need_to_login_or_be_invited_to_post_new_comments'));
 
     // ------------------------------ Rate Limiting ------------------------------ //
 
     if (!hasAdminRights) {
 
-      var timeSinceLastComment = timeSinceLast(user, Comments),
+      var timeSinceLastComment = Users.timeSinceLast(user, Comments),
           commentInterval = Math.abs(parseInt(Settings.get('commentInterval',15)));
 
       // check that user waits more than 15 seconds between comments
@@ -259,7 +259,7 @@ Meteor.methods({
   },
   removeComment: function(commentId){
     var comment = Comments.findOne(commentId);
-    if(can.edit(Meteor.user(), comment)){
+    if(Users.can.edit(Meteor.user(), comment)){
       // decrement post comment count and remove user ID from post
       Posts.update(comment.postId, {
         $inc:   {commentCount: -1},

@@ -41,9 +41,9 @@ Telescope.config.mobileNav.push({
 
 Meteor.startup(function () {
   Pages.collection.allow({
-    insert: isAdminById,
-    update: isAdminById,
-    remove: isAdminById
+    insert: Users.isAdminById,
+    update: Users.isAdminById,
+    remove: Users.isAdminById
   });
 
   Meteor.methods({

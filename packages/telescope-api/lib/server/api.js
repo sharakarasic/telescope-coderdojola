@@ -19,7 +19,7 @@ serveAPI = function(limitSegment){
     if(post.url)
       properties.domain = Telescope.utils.getDomain(url);
 
-    if(twitterName = getTwitterNameById(post.userId))
+    if(twitterName = Users.getTwitterNameById(post.userId))
       properties.twitterName = twitterName;
 
     var comments = [];

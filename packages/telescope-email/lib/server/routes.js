@@ -8,8 +8,8 @@ Meteor.startup(function () {
     action: function() {
       var user = Meteor.users.findOne(this.params.id);
       var emailProperties = {
-        profileUrl: getProfileUrl(user),
-        username: getUserName(user)
+        profileUrl: Users.getProfileUrl(user),
+        username: Users.getUserName(user)
       };
       html = getEmailTemplate('emailNewUser')(emailProperties);
       this.response.write(buildEmailTemplate(html));

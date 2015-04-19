@@ -5,9 +5,9 @@ Template.postViewsNav.helpers({
     return navCount > 1;
   },
   menuItems: function () {
-      if (!_.contains(Settings.get('postViews', defaultViews), item.route) || (item.adminOnly && !isAdmin(Meteor.user()))) {
     var defaultViews = _.pluck(Telescope.config.viewsMenu, 'route');
     var menuItems = _.filter(Telescope.config.viewsMenu, function (item) {
+      if (!_.contains(Settings.get('postViews', defaultViews), item.route) || (item.adminOnly && !Users.isAdmin(Meteor.user()))) {
         // don't show the item
         return false;
       }

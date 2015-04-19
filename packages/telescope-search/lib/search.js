@@ -34,8 +34,8 @@ Searches = new Meteor.Collection("searches", {
 
 Meteor.startup(function() {
   Searches.allow({
-    update: isAdminById
-  , remove: isAdminById
+    update: Users.isAdminById
+  , remove: Users.isAdminById
   });
 });
 

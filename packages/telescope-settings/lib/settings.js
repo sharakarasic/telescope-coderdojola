@@ -437,9 +437,9 @@ Settings.get = function(setting, defaultValue) {
 
 Meteor.startup(function () {
   Settings.collection.allow({
-    insert: isAdminById,
-    update: isAdminById,
-    remove: isAdminById
+    insert: Users.isAdminById,
+    update: Users.isAdminById,
+    remove: Users.isAdminById
   });
 });
 

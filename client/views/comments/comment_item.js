@@ -80,7 +80,7 @@ Template.comment_item.helpers({
     return Meteor.users.findOne(this.userId);
   },
   authorName: function(){
-    return getAuthorName(this);
+    return Users.getAuthorName(this);
   },
   showChildComments: function(){
     // TODO: fix this
@@ -99,7 +99,7 @@ Template.comment_item.helpers({
   profileUrl: function(){
     var user = Meteor.users.findOne(this.userId);
     if (user) {
-      return getProfileUrl(user);
+      return Users.getProfileUrl(user);
     }
   }
 });

@@ -3,7 +3,7 @@ Template.user_email.helpers({
     return Meteor.user();
   },
   username: function () {
-    return getUserName(Meteor.user());
+    return Users.getUserName(Meteor.user());
   }
 });
 

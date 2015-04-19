@@ -13,6 +13,7 @@ Package.onUse(function (api) {
   api.use([
     'telescope:telescope-lib',
     'telescope-base',
+    'telescope:telescope-users',
     'telescope-settings',
     'aldeed:simple-schema',
     'iron:router',

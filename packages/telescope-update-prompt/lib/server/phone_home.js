@@ -12,7 +12,7 @@ Meteor.methods({
       comments: Comments.find().count()
     }
 
-    if(Meteor.user() && isAdmin(Meteor.user())){
+    if(Meteor.user() && Users.isAdmin(Meteor.user())){
 
       this.unblock();
       try {
